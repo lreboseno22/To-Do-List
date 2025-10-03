@@ -10,6 +10,10 @@ function reducer(state, action) {
       return [{ text: action.text, complete: false }, ...state];
     case "toggle":
       return state.map((todo) => todo.id === action.id ? {...todo, complete: !todo.complete } : todo );
+    case "edit":
+      return state.map((todo) => todo.id === action.id ? {...todo, editing: true } : todo );
+    case "save":
+      return state.map((todo) => todo.id === action.id ? { ...todo, text: action.text, editing: false } : todo )
     default:
       return state;
   }
