@@ -13,7 +13,9 @@ function reducer(state, action) {
     case "edit":
       return state.map((todo) => todo.id === action.id ? {...todo, editing: true } : todo );
     case "save":
-      return state.map((todo) => todo.id === action.id ? { ...todo, text: action.text, editing: false } : todo )
+      return state.map((todo) => todo.id === action.id ? { ...todo, text: action.text, editing: false } : todo );
+    case "delete":
+      return state.filter((todo) => todo.id !== action.id);
     default:
       return state;
   }

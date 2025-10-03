@@ -25,7 +25,7 @@ export default function ListItem({ todo, dispatch }) {
         />
         {todo.text}
         <button onClick={() => dispatch({ type: "edit", id: todo.id })}> Edit </button>
-        <button> Delete </button>
+        <button onClick={() => dispatch({ type: "delete", id: todo.id })} disabled={!todo.complete}> Delete </button>
       </li>
     </>
   );
