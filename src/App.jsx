@@ -8,7 +8,8 @@ function reducer(state, action) {
   switch (action.type) {
     case "add":
       return [{ text: action.text, complete: false }, ...state];
-
+    case "toggle":
+      return state.map((todo) => todo.id === action.id ? {...todo, complete: !todo.complete } : todo );
     default:
       return state;
   }
