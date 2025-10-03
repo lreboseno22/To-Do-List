@@ -1,25 +1,12 @@
-export default function ListItem() {
+export default function ListItem({ todo, dispatch }) {
+
   return (
     <>
       <li className="list-item">
-        <input type="checkbox" /> Learn Japanese <button>Edit</button>{" "}
-        <button>Delete</button>
-      </li>
-      <li className="list-item">
-        <input type="checkbox" /> Wash the dishes <button>Edit</button>{" "}
-        <button>Delete</button>
-      </li>
-      <li className="list-item">
-        <input type="checkbox" /> Clean the Table <button>Edit</button>{" "}
-        <button>Delete</button>
-      </li>
-      <li className="list-item">
-        <input type="checkbox" /> Walk the Dog <button>Edit</button>{" "}
-        <button>Delete</button>
-      </li>
-      <li className="list-item">
-        <input type="checkbox" /> Reply to emails <button>Edit</button>{" "}
-        <button>Delete</button>
+        <input type="checkbox" checked={todo.complete} onChange={() => dispatch({ type: "toggle", id: todo.id })}/>
+        {todo.text}
+        <button> Edit </button>
+        <button> Delete </button>
       </li>
     </>
   );
