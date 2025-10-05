@@ -2,18 +2,20 @@ import "./App.css";
 import Form from "./componets/Form";
 import List from "./componets/List";
 
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 
 function reducer(state, action) {
   switch (action.type) {
     case "add":
-      return [{ text: action.text, complete: false }, ...state];
+      return [...state, { id: Date.now(), text: action.text, complete: false }];
     case "toggle":
       return state.map((todo) => todo.id === action.id ? {...todo, complete: !todo.complete } : todo );
     case "edit":
-      return state.map((todo) => todo.id === action.id ? {...todo, editing: true } : todo );
+      return state.map((todo) => todo.id === action.id ? {...todo, editing: true } : {...todo, editing: false} );
     case "save":
       return state.map((todo) => todo.id === action.id ? { ...todo, text: action.text, editing: false } : todo );
+    case "cancelEdit":
+      return state.map((todo) => todo.id === action.id ? {...todo, editing: false } : todo );
     case "delete":
       return state.filter((todo) => todo.id !== action.id);
     default:

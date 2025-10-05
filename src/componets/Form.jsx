@@ -5,8 +5,10 @@ export default function Form({ dispatch }){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(!text.trim()) return;
-
+        if(!text.trim()) {
+            alert("Please enter a task before adding")
+            return;
+        }
         dispatch({ type: "add", text });
         setText("");
     }

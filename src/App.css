@@ -5,13 +5,83 @@
   text-align: center;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+}
+
 .list-item {
   padding: 10px;
   list-style: none;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+}
 
+.list-item button {
+  margin-left: 0.5rem;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.list-item button:hover {
+  background: #bbb;
 }
 
 button {
   margin: 5px;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+form input[type="text"]{
+  padding: 0.5rem;
+  border: 1px solid #2c3e50;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form button {
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+form button:hover {
+  background: #2980b9;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container {
+  width: 380px;
+  box-sizing: border-box;
 }
